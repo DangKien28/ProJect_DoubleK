@@ -25,7 +25,7 @@ public class moneyTrade extends TradeModel{
 	
 	public float IntoMoney()
 	{
-		if (this.getType().equals("USD") || this.getType().equals("Euro"))
+		if (this.getType().equals("USD") || this.getType().equals("€"))
 		{
 			return this.getUnitPrice()*this.getAmount()*this.getRate();
 		}

@@ -1,15 +1,19 @@
 package View;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import Controller.TotalMonAmountController;
 
 public class TotalMonAmountView extends JFrame {
-	private TotalMonAmountController totalMon;
+	private TotalMonAmountController totalMon = new TotalMonAmountController();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField totalMonField;
@@ -47,22 +51,39 @@ public class TotalMonAmountView extends JFrame {
 	public void init()
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 589, 417);
+		setBounds(100, 100, 792, 512);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 555, 329);
-		contentPane.add(scrollPane);
 		
 		totalMonField = new JTextField();
+		totalMonField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		totalMonField.setEditable(false);
 		totalMonField.setText("Total Money Amount:");
-		totalMonField.setBounds(329, 351, 204, 19);
+		totalMonField.setBounds(513, 441, 160, 34);
 		contentPane.add(totalMonField);
 		totalMonField.setColumns(10);
+		
+		this.getTotalMon();
+		String[] col = this.getTotalMon().getColumns();
+		String[][] data = this.getTotalMon().getData();
+		int totalMAmount = this.getTotalMon().getTotalAmount();
+		
+		totalMonField.setText("Total Gold Amount:     ");
+		
+		JTable mTotalTable = new JTable(data, col);
+		mTotalTable.setEnabled(false);
+		JScrollPane mTotalPane = new JScrollPane(mTotalTable);
+		mTotalPane.setBounds(10, 10, 754, 417);
+		contentPane.add(mTotalPane);
+		
+		JLabel valueMTotal = new JLabel();
+		valueMTotal.setText(String.valueOf(totalMAmount));
+		valueMTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		valueMTotal.setBounds(683, 445, 65, 25);
+		contentPane.add(valueMTotal);
 	}
 }

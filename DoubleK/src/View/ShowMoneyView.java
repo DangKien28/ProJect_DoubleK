@@ -1,16 +1,25 @@
 package View;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import Controller.ShowMoneyController;
 
 public class ShowMoneyView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable Mtable;
+	private ShowMoneyController monCtrl = new ShowMoneyController();
+	
+
+	public ShowMoneyController getMonCtrl() {
+		return monCtrl;
+	}
 
 	/**
 	 * Launch the application.
@@ -45,9 +54,15 @@ public class ShowMoneyView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 582, 397);
-		contentPane.add(scrollPane);
+		this.getMonCtrl();
+		String[] colName = this.getMonCtrl().getColumns();
+		String[][] db = this.getMonCtrl().getData();
+		
+		Mtable = new JTable(db, colName);
+		Mtable.setEnabled(false);
+		JScrollPane scrollMPane = new JScrollPane(Mtable);
+		scrollMPane.setBounds(10, 10, 582, 397);
+		contentPane.add(scrollMPane);
 	}
 
 }

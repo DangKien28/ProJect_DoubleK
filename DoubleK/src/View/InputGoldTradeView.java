@@ -25,8 +25,12 @@ public class InputGoldTradeView extends JFrame {
 	private JTextField typeField;
 	private JButton enterBtn;
 	private JButton defaultBtn;
-
 	
+	private InputGoldController inpGold;
+	
+	public InputGoldController getInpGold() {
+		return inpGold;
+	}
 	public JButton getEnterBtn()
 	{
 		return this.enterBtn;

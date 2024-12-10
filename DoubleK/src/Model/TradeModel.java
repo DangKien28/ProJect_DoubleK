@@ -87,13 +87,4 @@ public class TradeModel implements iTradeMod{
 	{
 		return this.getUnitPrice()*this.getAmount();
 	}
-	
-	public void showTrade()
-	{
-		System.out.println("Id: "+this.getIdTrade());
-		System.out.println("Date: "+this.getDate()+" - "+this.getMonth()+"-"+this.getYear());
-		System.out.println("Unit Price: "+this.getUnitPrice());
-		System.out.println("Amout: "+this.getAmount());
-		System.out.println("Type: "+this.getType());
-	}
 }

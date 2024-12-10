@@ -1,5 +1,10 @@
 package View;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,11 +12,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
+import Controller.ShowGoldController;
+
 public class ShowGoldView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	private JTable gTable;
+	
+	private ShowGoldController showCtrl = new ShowGoldController();
+	
+	public ShowGoldController getShowCtrl()
+	{
+		return this.showCtrl;
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -38,19 +52,22 @@ public class ShowGoldView extends JFrame {
 	public void init()
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 786, 481);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		String columns[] = {"ID Trade", "Date", "Unit Price", "Amount", "Type"}; 
-		String data[][] = {{"111", "12-12-2022", "1", "1", "vang khoi"}, {"222", "22-12-2024","2", "2", "tien mat"}};
-		table = new JTable(data, columns);
+		this.getShowCtrl();
+		String[] columns = this.getShowCtrl().getColumns();
+		String[][] data = this.getShowCtrl().getData();
 		
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(10, 10, 416, 243);
-		contentPane.add(scrollPane);
+		gTable = new JTable(data, columns);
+		gTable.setEnabled(false);
+		JScrollPane gPane = new JScrollPane(gTable);
+		gPane.setBounds(10, 10, 752, 407);
+		contentPane.add(gPane);
+
 	}
 }

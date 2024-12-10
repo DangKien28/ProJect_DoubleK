@@ -6,10 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class TotalGoldAmountView extends JFrame {
-	private TotalGoldAmountController totalGold;
+	private TotalGoldAmountController totalGold = new TotalGoldAmountController();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtTotalGoldAmount;
@@ -48,22 +51,38 @@ public class TotalGoldAmountView extends JFrame {
 	{
 		setTitle("Total Gold Amount");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 552, 359);
+		setBounds(100, 100, 713, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 518, 271);
-		contentPane.add(scrollPane);
-		
 		txtTotalGoldAmount = new JTextField();
+		txtTotalGoldAmount.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtTotalGoldAmount.setText("Total Gold Amount");
 		txtTotalGoldAmount.setEditable(false);
-		txtTotalGoldAmount.setBounds(262, 291, 189, 21);
+		txtTotalGoldAmount.setBounds(439, 388, 170, 33);
 		contentPane.add(txtTotalGoldAmount);
 		txtTotalGoldAmount.setColumns(10);
+		
+		this.getTotalGold();
+		String[] col = this.getTotalGold().getColumns();
+		String[][] data = this.getTotalGold().getData();
+		int totalGAmount = this.getTotalGold().getTotalAmount();
+		
+		txtTotalGoldAmount.setText("Total Gold Amount:     ");
+		
+		JTable gTotalTable = new JTable(data, col);
+		gTotalTable.setEnabled(false);
+		JScrollPane gTotalPane = new JScrollPane(gTotalTable);
+		gTotalPane.setBounds(10, 10, 679, 368);
+		contentPane.add(gTotalPane);
+		
+		JLabel valueGTotal = new JLabel();
+		valueGTotal.setText(String.valueOf(totalGAmount));
+		valueGTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		valueGTotal.setBounds(624, 392, 65, 25);
+		contentPane.add(valueGTotal);
 	}
 }

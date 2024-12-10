@@ -6,35 +6,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TotalMonAmountController{
-	private int totalAmount=0;
+public class ShowMoneyController {
 	private String[] columns;
 	private String[][] data;
-	public String[] getColumns() {
+	public String[] getColumns()
+	{
 		return columns;
 	}
-	public void setColumns(String[] columns) {
+	public void setColumns(String[] columns)
+	{
 		this.columns = columns;
 	}
-	public String[][] getData() {
+	public String[][] getData()
+	{
 		return data;
 	}
-	public void setData(String[][] data) {
+	public void setData(String[][] data)
+	{
 		this.data = data;
 	}
 	
-	public int getTotalAmount() {
-		return totalAmount;
-	}
-	public void setTotalAmount(int totalAmount) {
-		this.totalAmount = totalAmount;
-	}
-	
-	public TotalMonAmountController()
+	public ShowMoneyController()
 	{
 		loadData();
 	}
-	
 	
 	public void loadData()
 	{
@@ -54,8 +49,7 @@ public class TotalMonAmountController{
 				countRows = rs.getInt("totalRows");
 				System.out.println(countRows);
 			}
-			
-			
+
 			rs.close();
 			stm.close();
 			conn.close();
@@ -65,17 +59,19 @@ public class TotalMonAmountController{
 		{
 			System.out.println("Error");
 		}
+		
 		String[] col = {"Order","ID Trade", "Date", "Unit Price", "Amount", "Type", "Rate", "Pay"};
 		this.setColumns(col);
 		String[][] dataTemp =  new String[countRows][8];
 		this.setData(dataTemp);
+		
 		try
 		{
 			Connection conn = DriverManager.getConnection(url, user, password);
 			Statement stm = conn.createStatement();
 			String sql = "SELECT * FROM moneydb";
 			ResultSet rs = stm.executeQuery(sql);
-			
+
 			int i = 0;
 			while (rs.next())
 			{
@@ -87,7 +83,7 @@ public class TotalMonAmountController{
 				String type = rs.getString("typeMoney");
 				float rate = rs.getFloat("rateMoney");
 				float money = rs.getFloat("intoMMoney");
-				
+
 				data[i][0] = String.valueOf(order);
 				data[i][1] = id;
 				data[i][2] = date;
@@ -98,9 +94,7 @@ public class TotalMonAmountController{
 				data[i][7] = String.valueOf(money);
 
 				i++;
-				this.totalAmount+=amount;
-				System.out.println(order+ " "+id+" "+date+" "+unit+" "+amount+" "+type );
-				System.out.println("Total: "+this.getTotalAmount());
+				System.out.println(order+ " "+id+" "+date+" "+unit+" "+amount+" "+type + " "+rate);
 			}
 			rs.close();
 			stm.close();
@@ -113,4 +107,5 @@ public class TotalMonAmountController{
 			e.printStackTrace();
 		}
 	}
+	
 }

@@ -4,6 +4,8 @@ import View.TradeManagementView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import View.Login_GUI;
 
 public class LoginController implements ActionListener {
@@ -43,8 +45,8 @@ public class LoginController implements ActionListener {
 		}
 		else
 		{
+			JOptionPane.showMessageDialog(loginView, "The username or password was wrong! Try again");
 			System.out.println("Sai ten dang nhap hoac mat khau");
-			this.getLoginView().getLogStatusItem().setText("The username or password was wrong! Try again");
 		}
 			
 	}
