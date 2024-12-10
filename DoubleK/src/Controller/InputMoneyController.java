@@ -91,7 +91,7 @@ public class InputMoneyController implements ActionListener{
 			String id = this.getInpMoneyView().getIdMField().getText();
 			if (id.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Day");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -103,7 +103,7 @@ public class InputMoneyController implements ActionListener{
 			String day = this.getInpMoneyView().getDateMField().getText();
 			if (day.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Day");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -116,7 +116,7 @@ public class InputMoneyController implements ActionListener{
 			String month = this.getInpMoneyView().getMonthMField().getText();
 			if (month.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Month");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -129,7 +129,7 @@ public class InputMoneyController implements ActionListener{
 			String year = this.getInpMoneyView().getYearMField().getText();
 			if (year.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Year");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -142,7 +142,7 @@ public class InputMoneyController implements ActionListener{
 			String unit = this.getInpMoneyView().getUnitMField().getText();
 			if (unit.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Unit Price");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -154,7 +154,7 @@ public class InputMoneyController implements ActionListener{
 			String amount = this.getInpMoneyView().getAmountMField().getText();
 			if (amount.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Amount");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -166,7 +166,7 @@ public class InputMoneyController implements ActionListener{
 			String type = (String) this.getInpMoneyView().getComboBox().getSelectedItem();
 			if (type.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Type");
 			}
 		}
 		
@@ -179,7 +179,7 @@ public class InputMoneyController implements ActionListener{
 			String rate = this.getInpMoneyView().getRateMField().getText();
 			if (rate.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpMoneyView, "You must input in the field");
+				JOptionPane.showMessageDialog(inpMoneyView, "You must input Rate");
 			}
 		}
 		catch (IllegalArgumentException e)

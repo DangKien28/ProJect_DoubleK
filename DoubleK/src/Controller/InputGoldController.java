@@ -95,7 +95,7 @@ public class InputGoldController implements ActionListener{
 			String id = this.getInpGold().getIdField().getText();
 			if (id.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input the ID");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -107,7 +107,7 @@ public class InputGoldController implements ActionListener{
 			String day = this.getInpGold().getDayField().getText();
 			if (day.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Day");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -120,7 +120,7 @@ public class InputGoldController implements ActionListener{
 			String month = this.getInpGold().getMonthField().getText();
 			if (month.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Month");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -133,7 +133,7 @@ public class InputGoldController implements ActionListener{
 			String year = this.getInpGold().getYearField().getText();
 			if (year.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Year");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -146,7 +146,7 @@ public class InputGoldController implements ActionListener{
 			String unit = this.getInpGold().getUnitField().getText();
 			if (unit.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Unit Price");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -158,7 +158,7 @@ public class InputGoldController implements ActionListener{
 			String amount = this.getInpGold().getAmountField().getText();
 			if (amount.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Amount");
 			}
 		}
 		catch (IllegalArgumentException e)
@@ -170,13 +170,14 @@ public class InputGoldController implements ActionListener{
 			String type = this.getInpGold().getTypeField().getText();
 			if (type.trim().isEmpty())
 			{
-				JOptionPane.showMessageDialog(inpGold, "You must input in the field");
+				JOptionPane.showMessageDialog(inpGold, "You must input Type");
 			}
 		}
 		catch (IllegalArgumentException e)
 		{
 			e.printStackTrace();
 		}
+
 		
 		this.getInpGold().getGoldTrade().setIdTrade(this.getInpGold().getIdField().getText());
 		this.getInpGold().getGoldTrade().setDate(Integer.parseInt(this.getInpGold().getDayField().getText()));

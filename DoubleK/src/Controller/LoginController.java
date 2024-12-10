@@ -34,10 +34,8 @@ public class LoginController implements ActionListener {
 		String a = this.getLoginView().getUserField().getText();
 		char[] b = this.getLoginView().getPassField().getPassword();
 		String c = new String(b);
-		
 		if (a.equals("admin") && c.equals("123456"))
 		{
-//			this.getLoginView().notificate();
 			System.out.println("Login success");
 			this.getLoginView().dispose();
 			TradeManagementView tradeManage = new TradeManagementView();
