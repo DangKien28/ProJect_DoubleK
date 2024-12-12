@@ -1,10 +1,5 @@
 package View;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,6 +41,7 @@ public class ShowGoldView extends JFrame {
 	 * Create the frame.
 	 */
 	public ShowGoldView() {
+		setTitle("Gold Trading");
 		this.init();
 		this.setVisible(true);
 	}

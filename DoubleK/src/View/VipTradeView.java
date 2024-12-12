@@ -40,6 +40,7 @@ public class VipTradeView extends JFrame {
 	 */
 	public VipTradeView()
 	{
+		setTitle("Vip Trading");
 		this.init();
 		this.setVisible(true);
 	}

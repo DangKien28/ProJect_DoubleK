@@ -45,6 +45,7 @@ public class AvgIntoMoney extends JFrame {
 	 * Create the frame.
 	 */
 	public AvgIntoMoney() {
+		setTitle("Average Money");
 		this.init();
 		this.setVisible(true);
 	}

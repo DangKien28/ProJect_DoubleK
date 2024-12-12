@@ -1,112 +1,107 @@
 package View;
 
-import Model.login;
-
 import Controller.LoginController;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.Font;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login_GUI extends JFrame {
-	
-	private login log;
-	
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField userField;
-	private JPasswordField passwordField;
-	private JLabel uLbl;
-	private JLabel pLbl;
-	private JButton loginBtn;
 
-	public void setLog(login log)
-	{
-		this.log = log;
-	}
-	
-	public login getLog()
-	{
-		return this.log;
-	}
-	public void setUserField(JTextField a)
-	{
-		this.userField = a;
-	}
-	public JTextField getUserField()
-	{
-		return this.userField;
-	}
-	public void setPassField(JPasswordField a)
-	{
-		this.passwordField = a;
-	}
-	public JPasswordField getPassField()
-	{
-		return this.passwordField;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
+	private JButton btnLogin;
+
+    public Login_GUI() {
+		initUI();
+		attachController();
+		setVisible(true);
 	}
 
+	// Initialize the user interface
+	private void initUI() {
+		setTitle("Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(450, 190, 450, 300);
+		setResizable(false);
 
-	/**
-	 * Create the frame.
-	 */
-	public Login_GUI()
-	{
-		this.log = new login();
-		this.init();
-		this.setVisible(true);
+		// Container Panel
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(new Color(102, 153, 255));
+		setContentPane(panel);
+
+		// Username Label
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblUsername.setForeground(Color.WHITE);
+		lblUsername.setBounds(50, 50, 100, 30);
+		panel.add(lblUsername);
+
+		// Username Input Field
+		txtUsername = new JTextField();
+		txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtUsername.setBounds(180, 50, 200, 30);
+		panel.add(txtUsername);
+
+		// Password Label
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPassword.setForeground(Color.WHITE);
+		lblPassword.setBounds(50, 100, 100, 30);
+		panel.add(lblPassword);
+
+		// Password Input Field
+		txtPassword = new JPasswordField();
+		txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtPassword.setBounds(180, 100, 200, 30);
+		panel.add(txtPassword);
+
+		// Login Button
+		btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLogin.setBackground(new Color(106, 90, 205));
+		btnLogin.setForeground(Color.WHITE);
+		btnLogin.setBounds(150, 180, 100, 30);
+		panel.add(btnLogin);
+
+		// Add KeyListeners for Enter key login
+		txtUsername.addKeyListener(new LoginKeyListener());
+		txtPassword.addKeyListener(new LoginKeyListener());
 	}
-	public void init()
-	{
-		setBackground(new Color(0, 128, 255));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(102, 153, 255));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		uLbl = new JLabel("Username");
-		uLbl.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		uLbl.setForeground(new Color(230, 230, 250));
-		uLbl.setBackground(new Color(231, 29, 170));
-		uLbl.setBounds(24, 71, 116, 30);
-		contentPane.add(uLbl);
-		
-		pLbl = new JLabel("Password");
-		pLbl.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		pLbl.setForeground(new Color(230, 230, 250));
-		pLbl.setBounds(34, 134, 106, 33);
-		contentPane.add(pLbl);
-		
-		userField = new JTextField();
-		userField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		userField.setBounds(157, 68, 190, 44);
-		contentPane.add(userField);
-		userField.setColumns(10);
-		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		passwordField.setBounds(157, 134, 190, 39);
-		contentPane.add(passwordField);
-		
-		
-		ActionListener ac = new LoginController(this);
-		loginBtn = new JButton("Login");
-		loginBtn.setBackground(new Color(106, 90, 205));
-		loginBtn.setForeground(new Color(176, 224, 230));
-		loginBtn.setBounds(171, 199, 104, 30);
-		contentPane.add(loginBtn);
-		
-		loginBtn.addActionListener(ac);
-		
+	// Attach the controller to the button
+	private void attachController() {
+        LoginController controller = new LoginController(this);
+		btnLogin.addActionListener(controller);
+	}
+
+	// Getters for input fields (used by the controller)
+	public String getUsername() {
+		return txtUsername.getText();
+	}
+
+	public String getPassword() {
+		return new String(txtPassword.getPassword());
+	}
+
+	public JButton getLoginButton() {
+		return btnLogin;
+	}
+
+	// Key Listener for detecting Enter key press
+	private class LoginKeyListener extends KeyAdapter {
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+				btnLogin.doClick(); // Gia_lap enter = mouse click
+			}
+		}
+	}
+
+	// Main method for standalone testing
+	public static void main(String[] args) {
+		new Login_GUI();
 	}
 }

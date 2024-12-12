@@ -41,6 +41,7 @@ public class ShowMoneyView extends JFrame {
 	 * Create the frame.
 	 */
 	public ShowMoneyView() {
+		setTitle("Money Trading");
 		this.init();
 		this.setVisible(true);
 	}

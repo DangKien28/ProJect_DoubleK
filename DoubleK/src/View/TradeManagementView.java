@@ -15,6 +15,7 @@ import javax.swing.JMenuBar;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
 public class TradeManagementView extends JFrame {
 	private goldenTrade goldTrade;
@@ -168,7 +169,7 @@ public class TradeManagementView extends JFrame {
 	public TradeManagementView()
 	{
 		setTitle("Gold and Money - Double K");
-		setBackground(new Color(0, 204, 204));
+		setBackground(new Color(255, 255, 255));
 		this.goldTrade = new goldenTrade();
 		this.monTrade = new moneyTrade();
 		
@@ -242,13 +243,13 @@ public class TradeManagementView extends JFrame {
 		vipTrading.add(vipTradeItem);
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(240, 248, 255));
+		panel.setBackground(new Color(0, 0, 0));
 		scrollPane.setViewportView(panel);
 		panel.setLayout(null);
 		
-		ImageIcon img = new ImageIcon("D:\\DK_My_Code\\Code_Java\\DoubleK\\src\\concac.jpg", "concac");
+		ImageIcon img = new ImageIcon("D:\\DK_My_Code\\Code_Java\\DoubleK\\src\\DoubleK.png", "DoubleK");
 		Image = new JLabel("Image", img, JLabel.CENTER);
-		Image.setBounds(10, 10, 745, 463);
+		Image.setBounds(74, 10, 603, 449);
 		panel.add(Image);
 		
 		

@@ -45,6 +45,7 @@ public class TotalMonAmountView extends JFrame {
 	 */
 	public TotalMonAmountView()
 	{
+		setTitle("Total Money Amount");
 		this.init();
 		this.setVisible(true);
 	}
