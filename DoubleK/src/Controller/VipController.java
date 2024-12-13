@@ -100,9 +100,9 @@ public class VipController {
 		}
 		else
 		{
-			String[] col = {"Order","ID Trade", "Date", "Unit Price", "Amount", "Type", "Rate", "Pay"};
+			String[] col = {"ID Trade", "Date", "Unit Price", "Amount", "Type", "Rate", "Pay"};
 			this.setColumns(col);
-			String[][] dataTemp =  new String[count][8];
+			String[][] dataTemp =  new String[count][7];
 			this.setData(dataTemp);
 			
 			try
@@ -129,17 +129,16 @@ public class VipController {
 						float rate = rs.getFloat("rateMoney");
 						float money = rs.getFloat("intoMMoney");
 
-						data[i][0] = String.valueOf(order);
-						data[i][1] = id;
-						data[i][2] = date;
-						data[i][3] = String.valueOf(unit);
-						data[i][4] = String.valueOf(amount);
-						data[i][5] = type;
-						data[i][6] = String.valueOf(rate);
-						data[i][7] = String.valueOf(money);
+						data[i][0] = id;
+						data[i][1] = date;
+						data[i][2] = String.valueOf(unit);
+						data[i][3] = String.valueOf(amount);
+						data[i][4] = type;
+						data[i][5] = String.valueOf(rate);
+						data[i][6] = String.valueOf(money);
 
 						i++;
-						System.out.println(order+ " "+id+" "+date+" "+unit+" "+amount+" "+type + " "+rate);
+						System.out.println(id+" "+date+" "+unit+" "+amount+" "+type + " "+rate);
 					}
 					
 				}
@@ -175,13 +174,12 @@ public class VipController {
 						String type = rs.getString("typeGold");
 						float money = rs.getFloat("intoGMoney");
 
-						data[i][0] = String.valueOf(order);
-						data[i][1] = id;
-						data[i][2] = date;
-						data[i][3] = String.valueOf(unit);
-						data[i][4] = String.valueOf(amount);
-						data[i][5] = type;
-						data[i][7] = String.valueOf(money);
+						data[i][0] = id;
+						data[i][1] = date;
+						data[i][2] = String.valueOf(unit);
+						data[i][3] = String.valueOf(amount);
+						data[i][4] = type;
+						data[i][6] = String.valueOf(money);
 
 						i++;
 						System.out.println(order+ " "+id+" "+date+" "+unit+" "+amount+" "+type + " ");

@@ -1,7 +1,6 @@
 package View;
 
 import Controller.LoginController;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
